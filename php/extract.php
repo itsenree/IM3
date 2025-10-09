@@ -14,8 +14,9 @@
   10) Fehlerfälle: Exception/Fehlerobjekt nach oben reichen (kein HTML ausgeben).
    ============================================================================ */
 
-function fetchWeatherData()
+function fetchDelayData()
 {
+    $offset = 0;
     $url = "https://data.sbb.ch/api/explore/v2.1/catalog/datasets/ist-daten-sbb/records?limit=100&refine=ankunftsverspatung%3A%22true%22";
 
     // Initialisiert eine cURL-Sitzung
@@ -26,16 +27,92 @@ function fetchWeatherData()
 
     // Führt die cURL-Sitzung aus und erhält den Inhalt
     $response = curl_exec($ch);
-    // echo $response;
 
     // Schließt die cURL-Sitzung
     curl_close($ch);
 
     // Dekodiert die JSON-Antwort und gibt Daten zurück
     $data = json_decode($response, true);
-    // echo "<br><br>";
-    // print_r($data); d
+    $totalCount = $data['total_count'];
+
+    while (count($data['results']) < $totalCount) {
+        $offset += 100;
+        $urlWithOffset = $url . "&offset=" . $offset;
+
+        // Initialisiert eine cURL-Sitzung
+        $ch = curl_init($urlWithOffset);
+
+        // Setzt Optionen
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        // Führt die cURL-Sitzung aus und erhält den Inhalt
+        $response = curl_exec($ch);
+
+        // Schließt die cURL-Sitzung
+        curl_close($ch);
+
+        // Dekodiert die JSON-Antwort und fügt die neuen Datensätze hinzu
+        $newData = json_decode($response, true);
+        $data['results'] = array_merge($data['results'], $newData['results']);
+    }
+
+    echo "Gesamtanzahl der Verspätungen: " . count($data['results']) . "\n";
+
+    return $data;
+}
+
+
+function fetchCancellationData()
+{
+    $offset = 0;
+    $url = "https://data.sbb.ch/api/explore/v2.1/catalog/datasets/ist-daten-sbb/records?limit=100&refine=faellt_aus_tf%3A%22true%22";
+
+    // Initialisiert eine cURL-Sitzung
+    $ch = curl_init($url);
+
+    // Setzt Optionen
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+    // Führt die cURL-Sitzung aus und erhält den Inhalt
+    $response = curl_exec($ch);
+
+    // Schließt die cURL-Sitzung
+    curl_close($ch);
+
+    // Dekodiert die JSON-Antwort und gibt Daten zurück
+    $data = json_decode($response, true);
+    $totalCount = $data['total_count'];
+
+    while (count($data['results']) < $totalCount) {
+        $offset += 100;
+        $urlWithOffset = $url . "&offset=" . $offset;
+
+        // Initialisiert eine cURL-Sitzung
+        $ch = curl_init($urlWithOffset);
+
+        // Setzt Optionen
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        // Führt die cURL-Sitzung aus und erhält den Inhalt
+        $response = curl_exec($ch);
+
+        // Schließt die cURL-Sitzung
+        curl_close($ch);
+
+        // Dekodiert die JSON-Antwort und fügt die neuen Datensätze hinzu
+        $newData = json_decode($response, true);
+        $data['results'] = array_merge($data['results'], $newData['results']);
+    }
+
+    echo "Gesamtanzahl der Ausfälle: " . count($data['results']) . "\n";
+
+    return $data;
 }
 
 // Gibt die Daten zurück, wenn dieses Skript eingebunden ist
-return fetchWeatherData();
+$delayData = fetchDelayData();
+$cancellationData = fetchCancellationData();
+return [
+    'total_count' => $delayData['total_count'] + $cancellationData['total_count'],
+    'results' => array_merge($delayData['results'], $cancellationData['results'])
+];

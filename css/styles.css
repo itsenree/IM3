@@ -1,0 +1,17 @@
+.delay {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.delay-time {
+    color: red;
+    font-weight: bold;
+    background-color: rgb(249, 174, 174);
+    padding: 5px;
+    border-radius: 3px;
+    display: inline-block;
+}
