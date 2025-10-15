@@ -96,9 +96,9 @@ h3 {
 
 /* ---- award container ---- */
 
-/* .detail_container{
-
-} */
+.detail_container{
+    width: 60%;
+}
 
 /* ---- small selection bar ---- */
 
@@ -108,6 +108,14 @@ h3 {
     text-decoration: none;
     border-bottom: 3px solid white;
     padding-top: 5px;
+    text-align: center;
+    display: inline-block;
+    justify-content: initial;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-bottom: 15px;
 }
 
 .detail_name {
@@ -127,13 +135,78 @@ h3 {
 /* ---- table info  ---- */
 
 table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-  background: #191712;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+    background: #191712;
+    margin-left: auto;
+    margin-right: auto;
+    border: 20px solid;
+    padding: 32px;
+    overflow: hidden;
+    border-radius: 20px;
 }
 
 td, th {
-  border: 1px solid #dddddd;
   text-align: left;
+}
+
+.column_name {
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+    font-family: "Bellota Text";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    background: var(--gold-simple, linear-gradient(135deg, #F8D666 0%, #D3AF3B 18.75%, #BD9D35 36.06%, #6D5B1E 100%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+td {
+    color: #FFF;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+    font-family: "Bellota Text";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+/* First place */
+tr:nth-child(2) .placement {
+    color: gold;
+}
+
+/* Second place */
+tr:nth-child(3) .placement {
+    color: rgb(196, 184, 184);
+}
+
+/* Third place */
+tr:nth-child(4) .placement {
+    color: #e08830; /* Bronze color */
+}
+
+/* Second place */
+tr:nth-child(5) .placement,
+tr:nth-child(6) .placement {
+    color: rgb(122, 122, 122);
+}
+
+.go-back {
+    color: white;
+    text-align: center;
+    font-family: "Bellota Text", sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    margin: 0;
+    margin-top: 10px;
+    text-decoration: none;
 }
