@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bellota+Text:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
 .delay {
     font-family: Arial, sans-serif;
     margin: 20px;
@@ -14,4 +16,152 @@
     padding: 5px;
     border-radius: 3px;
     display: inline-block;
+}
+
+/* ---- grundgerüst ---- */
+
+body {
+    background-color: #121212;
+}
+
+header {
+    text-align: center;
+    font-family: "Bellota Text", sans-serif;
+    font-size: 25px;
+    background: var(--gold-simple, linear-gradient(135deg, #F8D666 0%, #D3AF3B 18.75%, #BD9D35 36.06%, #6D5B1E 100%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h1 {
+    margin: 0;
+    padding-top: 30px;
+}
+
+.award-day-txt {
+    color: #FFF;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+    font-family: "Bellota Text", sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+section {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center horizontally */
+    height: 100vh;
+}
+
+.award-container {
+  display: flex;
+  flex-wrap: wrap;
+  /* background-color: rgb(0, 0, 0); */
+  justify-content: center;
+  width: 80%;
+  gap: 30px;
+}
+
+.award-item {
+  /* background-color: #f1f1f1; */
+    background: linear-gradient(135deg, #F8D666 0%, #D3AF3B 18.75%, #BD9D35 36.06%, #6D5B1E 100%);
+    box-shadow: 0 4px 6px 0 rgba(255, 255, 255, 0.25) inset;
+    filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.25));
+    padding: 20px;
+    font-size: 24px;
+    width: 320px;
+    height: 320px;
+}
+
+h3 {
+    margin-top: 0;
+}
+
+.award-category {
+    color: #776015;
+    text-align: center;
+    font-family: "Bellota Text", sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* ---- styles des award textes ---- */
+
+.award-link {
+    text-decoration: none;
+}
+
+.award-winner-short {
+    color: #FFF;
+    text-align: center;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #000;
+    font-family: "Bellota Text", sans-serif;
+    font-size: 94px;
+    font-style: normal;
+    text-transform: uppercase;
+    margin: 20px;
+    font-weight: bolder;
+}
+
+.award-winner-long {
+    color: #FFF;
+    text-align: center;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #000;
+    font-family: "Bellota Text", sans-serif;
+    font-size: 50px;
+    font-style: normal;
+    text-transform: uppercase;
+    margin: 20px;
+    font-weight: bolder;
+    overflow-wrap: break-word;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 50%;
+}
+
+.award-subtext {
+    color: #FFF;
+    text-align: center;
+    font-family: "Bellota Text", sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    margin: 0;
+    font-weight: bolder;
+    position: absolute;
+    left: 50%;
+    bottom: 60px;
+    transform: translateX(-50%);
+    width: 100%;
+}
+
+.find-out-more {
+    color: #000;
+    text-align: center;
+    font-family: "Bellota Text", sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    margin-top: auto;
+    margin-bottom: 10px;
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transform: translateX(-50%);
 }
