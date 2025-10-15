@@ -2,11 +2,8 @@
 
 /* ---- base ---- */
 
-body {
-    background-color: #121212;
-}
-
 header {
+    position: relative;
     text-align: center;
     font-family: "Bellota Text", sans-serif;
     font-size: 25px;
@@ -14,11 +11,21 @@ header {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    margin-top: 20px;
 }
 
 h1 {
     margin: 0;
-    padding-top: 30px;
+    font-size: 58px;
+    padding-top: 20px;
+    line-height: 58px;
+    text-transform: uppercase;
+}
+
+h2 {
+    margin: 0;
+    padding-bottom: 20px;
+    text-transform: uppercase;
 }
 
 .award-day-txt {
