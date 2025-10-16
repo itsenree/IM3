@@ -22,7 +22,7 @@
         <h2 class="award-title">Unzuverlässigste Zuglinien</h2>
         <?php
         // Determine active tab from query parameter, default to 'preistraeger'
-        $activeTab = isset($_GET['tab']) ? $_GET['tab'] : 'preistraeger';
+        $activeTab = isset($_GET['tab']) ? $_GET['tab'] : 'aktuell';
         ?>
 
         <div id="tab-container" class="detail_container">
