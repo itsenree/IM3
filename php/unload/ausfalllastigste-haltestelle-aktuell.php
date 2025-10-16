@@ -7,7 +7,7 @@ header('Content-Type: application/json');
 
 try {
     $pdo = new PDO($dsn, $username, $password, $options);
-    $sql = "SELECT haltestelle, COUNT(ID) FROM Verspaetungen WHERE ausfall = 1 GROUP BY haltestelle ORDER BY COUNT(ID) DESC";
+    $sql = "SELECT haltestelle, COUNT(ID) as ausfaelle FROM Verspaetungen WHERE ausfall = 1 GROUP BY haltestelle ORDER BY ausfaelle DESC";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $results = $stmt->fetchAll();
