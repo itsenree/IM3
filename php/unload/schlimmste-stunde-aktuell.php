@@ -7,7 +7,7 @@ header('Content-Type: application/json');
 
 try {
     $pdo = new PDO($dsn, $username, $password, $options);
-    $sql = "SELECT SUBSTRING(ankunftszeit, 12, 2) as zeit, COUNT(ID) FROM Verspaetungen WHERE ausfall = 0 GROUP BY zeit ORDER BY COUNT(ID) DESC";
+    $sql = "SELECT SUBSTRING(ankunftszeit, 12, 2) as zeit, COUNT(ID) as verspaetungen FROM Verspaetungen WHERE ausfall = 0 GROUP BY zeit ORDER BY verspaetungen DESC";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $results = $stmt->fetchAll();
