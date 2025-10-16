@@ -22,7 +22,6 @@ section {
     display: flex;
     flex-direction: column; /* Stack children vertically */
     align-items: center; /* Center horizontally */
-    height: 100vh;
 }
 
 h3 {
@@ -94,10 +93,17 @@ table {
     border-radius: 20px;
 }
 
-td, th {
-  text-align: center;
+table tbody {
+  display: block;
+  max-height: 300px;
+  overflow-y: scroll;
 }
 
+table thead, table tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
 .column_name {
     text-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
     font-family: "Bellota Text";
@@ -123,24 +129,26 @@ td {
     text-transform: uppercase;
 }
 
+table td:nth-child(1), table th:nth-child(1), table td:nth-child(2), table th:nth-child(2) { text-align: start; }
+table td:nth-child(3), table th:nth-child(3), table td:nth-child(4), table th:nth-child(4) { text-align: end; }
+
 /* First place */
-tr:nth-child(2) .placement {
+tr:nth-child(1) .rank {
     color: gold;
 }
 
 /* Second place */
-tr:nth-child(3) .placement {
+tr:nth-child(2) .rank {
     color: rgb(196, 184, 184);
 }
 
 /* Third place */
-tr:nth-child(4) .placement {
+tr:nth-child(3) .rank {
     color: #e08830; /* Bronze color */
 }
 
 /* Second place */
-tr:nth-child(5) .placement,
-tr:nth-child(6) .placement {
+tr:nth-child(n+4) .rank {
     color: rgb(122, 122, 122);
 }
 
