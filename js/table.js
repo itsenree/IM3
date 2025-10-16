@@ -1,29 +1,63 @@
-document.querySelectorAll('.category_selection a').forEach(function(tabLink) {
-    tabLink.addEventListener('click', function(e) {
-        e.preventDefault();
-        const tab = tabLink.getAttribute('data-tab');
-        const tabContent = document.getElementById('tab-content');
-        tabContent.style.opacity = 0;
-        setTimeout(function() {
-            fetch(window.location.pathname + '?tab=' + tab)
-                .then(response => response.text())
-                .then(html => {
-                    // Extract only the tab-content div from the response
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(html, 'text/html');
-                    const newContent = doc.getElementById('tab-content');
-                    if (newContent) {
-                        tabContent.innerHTML = newContent.innerHTML;
-                        tabContent.style.opacity = 1;
-                        // Update active tab styling
-                        document.querySelectorAll('.category_selection a').forEach(a => {
-                            a.className = 'detail_name';
-                        });
-                        tabLink.className = 'detail_active';
-                        // Update URL without scrolling
-                        history.replaceState(null, '', '?tab=' + tab);
-                    }
-                });
-        }, 150);
+    // Function to handle tab switching
+    function switchTab(tab) {
+        // Remove active class from all tabs
+        document.querySelectorAll('.category_selection a').forEach(function(t) {
+            t.classList.remove('detail_active');
+            t.classList.add('detail_name');
+        });
+
+        // Add active class to the selected tab
+        tab.classList.add('detail_active');
+        tab.classList.remove('detail_name');
+
+        // Hide all tables
+        document.querySelectorAll('#tab-content table').forEach(function(table) {
+            table.style.display = 'none';
+        });
+
+        // Show the selected table
+        const selected = tab.getAttribute('data-tab');
+        const selectedTable = document.querySelector('#tab-content table[data-tab-content="' + selected + '"]');
+        if (selectedTable) {
+            selectedTable.style.display = '';
+        }
+    }
+
+    // Automatically show the correct tab content on page load
+    function showActiveTabOnLoad() {
+        // Check if a tab is specified in the URL query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const activeTabParam = urlParams.get('tab');
+
+        // Find the corresponding tab link
+        let activeTab = null;
+        if (activeTabParam) {
+            activeTab = document.querySelector('.category_selection a[data-tab="' + activeTabParam + '"]');
+        }
+
+        // Default to the first tab if no valid tab is found
+        if (!activeTab) {
+            activeTab = document.querySelector('.category_selection a.detail_active');
+        }
+
+        // Switch to the active tab
+        if (activeTab) {
+            switchTab(activeTab);
+        }
+    }
+
+    // Add click event listeners to all tabs
+    document.querySelectorAll('.category_selection a').forEach(function(tab) {
+        tab.addEventListener('click', function(e) {
+            e.preventDefault();
+            switchTab(tab);
+
+            // Update the URL query parameter without reloading the page
+            const selectedTab = tab.getAttribute('data-tab');
+            const newUrl = window.location.pathname + '?tab=' + selectedTab;
+            history.replaceState(null, '', newUrl);
+        });
     });
-});
+
+    // Show the correct tab content on page load
+    showActiveTabOnLoad();
