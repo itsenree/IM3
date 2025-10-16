@@ -14,9 +14,11 @@
 </head>
 <body>
     <header>
-        <div class="header-rails"></div>
-        <h1>SBB</h1>
-        <h2>Railbait Awards</h2>
+        <a href="../index.php">
+            <div class="header-rails"></div>
+            <h1>SBB</h1>
+            <h2>Railbait Awards</h2>
+        </a>
     </header>
 
     <section>
