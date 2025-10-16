@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBB Railbait Awards</title>
+    <link rel="stylesheet" href="../css/award.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/background.css">
+</head>
+<body>
+    <header>
+        <div class="header-rails"></div>
+        <h1>SBB</h1>
+        <h2>Railbait Awards</h2>
+    </header>
+
+    <section>
+        <h2 class="award-title">Unzuverlässigste Zuglinien</h2>
+        <div id="tab-container" class="detail_container">
+            <div class="category_selection">
+                <a class="detail_active" href="#" data-tab="aktuell">Aktuell</a>
+                <a class="detail_name" href="#" data-tab="rekorde">Rekorde</a>
+                <a class="detail_name" href="#" data-tab="preistraeger">Preisträger</a>
+            </div>
+            <div id="tab-content" style="transition: opacity 0.3s;">
+                <!-- Aktuell Tab Content -->
+                <table data-tab-content="aktuell">
+                    <tr>
+                        <th class="column_name">Rang</th>
+                        <th class="column_name">Zuglinie</th>
+                        <th class="column_name">Verspätungen</th>
+                    </tr>
+                    <tr>
+                        <td class="placement">1.</td>
+                        <td>S11</td>
+                        <td>42</td>
+                    </tr>
+                    <tr>
+                        <td class="placement">2.</td>
+                        <td>ICE</td>
+                        <td>41</td>
+                    </tr>
+                    <tr>
+                        <td class="placement">3.</td>
+                        <td>ICE</td>
+                        <td>35</td>
+                    </tr>
+                    <tr>
+                        <td class="placement">4.</td>
+                        <td>ICE</td>
+                        <td>30</td>
+                    </tr>
+                    <tr>
+                        <td class="placement">5.</td>
+                        <td>ICE</td>
+                        <td>28</td>
+                    </tr>
+                </table>
+                <!-- Rekorde Tab Content -->
+                <table data-tab-content="rekorde" style="display:none;">
+                    <tr>
+                        <th class="column_name">Rang</th>
+                        <th class="column_name">Zuglinie</th>
+                        <th class="column_name">Verspätungen</th>
+                        <th class="column_name">Datum</th>
+                    </tr>
+                    <tr>
+                        <td class="placement">1.</td>
+                        <td>S11</td>
+                        <td>42</td>
+                        <td>12.05.2025</td>
+                    </tr>
+                    <tr>
+                        <td class="placement">2.</td>
+                        <td>ICE</td>
+                        <td>41</td>
+                        <td>12.05.2025</td>
+                    </tr>
+                    <tr>
+                        <td class="placement">3.</td>
+                        <td>ICE</td>
+                        <td>35</td>
+                        <td>12.05.2025</td>
+                    </tr>
+                    <tr>
+                        <td class="placement">4.</td>
+                        <td>ICE</td>
+                        <td>30</td>
+                        <td>12.05.2025</td>
+                    </tr>
+                    <tr>
+                        <td class="placement">5.</td>
+                        <td>ICE</td>
+                        <td>28</td>
+                        <td>12.05.2025</td>
+                    </tr>
+                </table>
+                <!-- Preisträger Tab Content -->
+                <table data-tab-content="preistraeger" style="display:none;">
+                    <tr>
+                        <th class="column_name">Rang</th>
+                        <th class="column_name">Zuglinie</th>
+                        <th class="column_name">Awards</th>
+                    </tr>
+                    <tr>
+                        <td class="placement">1.</td>
+                        <td>S11</td>
+                        <td>42</td>
+                    </tr>
+                    <tr>
+                        <td class="placement">2.</td>
+                        <td>ICE</td>
+                        <td>41</td>
+                    </tr>
+                    <tr>
+                        <td class="placement">3.</td>
+                        <td>ICE</td>
+                        <td>35</td>
+                    </tr>
+                    <tr>
+                        <td class="placement">4.</td>
+                        <td>ICE</td>
+                        <td>30</td>
+                    </tr>
+                    <tr>
+                        <td class="placement">5.</td>
+                        <td>ICE</td>
+                        <td>28</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <script>
+    // Function to handle tab switching
+    function switchTab(tab) {
+        // Remove active class from all tabs
+        document.querySelectorAll('.category_selection a').forEach(function(t) {
+            t.classList.remove('detail_active');
+            t.classList.add('detail_name');
+        });
+
+        // Add active class to the selected tab
+        tab.classList.add('detail_active');
+        tab.classList.remove('detail_name');
+
+        // Hide all tables
+        document.querySelectorAll('#tab-content table').forEach(function(table) {
+            table.style.display = 'none';
+        });
+
+        // Show the selected table
+        const selected = tab.getAttribute('data-tab');
+        const selectedTable = document.querySelector('#tab-content table[data-tab-content="' + selected + '"]');
+        if (selectedTable) {
+            selectedTable.style.display = '';
+        }
+    }
+
+    // Automatically show the correct tab content on page load
+    function showActiveTabOnLoad() {
+        // Check if a tab is specified in the URL query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const activeTabParam = urlParams.get('tab');
+
+        // Find the corresponding tab link
+        let activeTab = null;
+        if (activeTabParam) {
+            activeTab = document.querySelector('.category_selection a[data-tab="' + activeTabParam + '"]');
+        }
+
+        // Default to the first tab if no valid tab is found
+        if (!activeTab) {
+            activeTab = document.querySelector('.category_selection a.detail_active');
+        }
+
+        // Switch to the active tab
+        if (activeTab) {
+            switchTab(activeTab);
+        }
+    }
+
+    // Add click event listeners to all tabs
+    document.querySelectorAll('.category_selection a').forEach(function(tab) {
+        tab.addEventListener('click', function(e) {
+            e.preventDefault();
+            switchTab(tab);
+
+            // Update the URL query parameter without reloading the page
+            const selectedTab = tab.getAttribute('data-tab');
+            const newUrl = window.location.pathname + '?tab=' + selectedTab;
+            history.replaceState(null, '', newUrl);
+        });
+    });
+
+    // Show the correct tab content on page load
+    showActiveTabOnLoad();
+</script>
+            </div>
+        </div>
+        <a class="go-back" href="../index.php">Zurück</a>
+    </section>
+
+       <svg id="red-carpet" xmlns="http://www.w3.org/2000/svg" width="1440" height="140" viewBox="0 0 1440 140" fill="none">
+    <path d="M234.5 0L-84 171.5H1516L1192 0H234.5Z" fill="url(#paint0_linear_13_39)"/>
+    <defs>
+    <linearGradient id="paint0_linear_13_39" x1="716" y1="171.5" x2="716" y2="0" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#8D1919"/>
+    <stop offset="1" stop-color="#420B0B"/>
+    </linearGradient>
+    </defs>
+    </svg>
+
+    <div class="railings-container">
+        <div class="railing left"></div>
+        <div class="railing right"></div>
+    </div>
+
+    <svg class="stage-light left" xmlns="http://www.w3.org/2000/svg" width="1063" height="1024" viewBox="0 0 1063 1024" fill="none">
+    <path d="M472.259 1193L-84 -164L1063 1038.84L472.259 1193Z" fill="#F8CC87" fill-opacity="0.2"/>
+    </svg>
+
+    <svg class="stage-light right" xmlns="http://www.w3.org/2000/svg" width="1042" height="1024" viewBox="0 0 1042 1024" fill="none">
+    <path d="M590.741 1193L1147 -164L0 1038.84L590.741 1193Z" fill="#F8CC87" fill-opacity="0.2"/>
+    </svg>
+</body>
+</html>

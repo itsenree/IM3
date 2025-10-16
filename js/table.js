@@ -24,6 +24,6 @@ document.querySelectorAll('.category_selection a').forEach(function(tabLink) {
                         history.replaceState(null, '', '?tab=' + tab);
                     }
                 });
-        }, 300);
+        }, 150);
     });
 });
