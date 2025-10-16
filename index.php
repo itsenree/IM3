@@ -38,7 +38,7 @@ $verspaetetsteHaltestelleOverviev = "5";
     <section>
         <h2 class="award-day-txt">Award Gewinner vom <?php echo $apiDate; ?></h2>
         <div class="award-container">
-            <a class="award-link" href="#">
+            <a class="award-link" href="award-site/unzuverlaessigsteZuglinie.php">
                 <div class="award-item" >
                     <h3 class="award-category">Unzuverlässigste Zuglinie</h3>
                     <p class="award-winner-short"><?php echo $unzuverlaessigsteZuglinieWinner; ?></p>
