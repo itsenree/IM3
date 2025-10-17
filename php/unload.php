@@ -39,7 +39,7 @@ try {
     $results = $stmt->fetchAll();
 
     // Gibt die Ergebnisse im JSON-Format zurück
-    //echo json_encode($results);
+    echo json_encode($results);
 } catch (PDOException $e) {
     // Gibt eine Fehlermeldung zurück, wenn etwas schiefgeht
     echo json_encode(['error' => $e->getMessage()]);

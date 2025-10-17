@@ -6,6 +6,7 @@
     <title>SBB Railbait Awards</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/background.css">
+    <script src="js/showcase.js" defer></script>
 </head>
 <body>
     <header>
@@ -16,54 +17,56 @@
         </a>
     </header>
 
+
     <section>
-        <h2 class="award-day-txt">Award Gewinner vom 13.10.2025</h2>
+        <h2 class="award-day-txt" id="outputDateFromPull"></h2>
         <div class="award-container">
-            <a class="award-link" href="awards/unzuverlaessigstezuglinie.html">
+            <a class="award-link" href="awards/unzuverlaessigste-zuglinie.html">
                 <div class="award-item">
                     <h3 class="award-category">Unzuverlässigste Zuglinie</h3>
-                    <p class="award-winner-short">S7</p>
-                    <p class="award-subtext">42 Verspätungen</p>
+                    <!-- <p class="award-winner-short">S7</p> -->
+                    <p class="award-winner-short" id="outputUnzZuglZuglinie"></p>
+                    <p class="award-subtext" id="outputUnzZuglVersp"></p>
                     <p class="find-out-more">Mehr erfahren</p>
                 </div>
             </a>
             <a class="award-link" href="#">
                 <div class="award-item">
                     <h3 class="award-category">Längste Verspätung</h3>
-                    <p class="award-winner-short">IC</p>
-                    <p class="award-subtext">1H 30MIN</p>
+                    <p class="award-winner-short" id="outputLaengVerspZuglinie"></p>
+                    <p class="award-subtext" id="outputLaengVerspVersp"></p>
                     <p class="find-out-more">Mehr erfahren</p>
                 </div>
             </a>
             <a class="award-link" href="#">
                 <div class="award-item">
                     <h3 class="award-category">Unzuverlässigstes Verkehrsmittel</h3>
-                    <p class="award-winner-short">ICE</p>
-                    <p class="award-subtext">201 Verspätungen</p>
+                    <p class="award-winner-short" id="outputUnzVerkVerk"></p>
+                    <p class="award-subtext" id="outputUnzVerkVersp"></p>
                     <p class="find-out-more">Mehr erfahren</p>
                 </div>
             </a>
             <a class="award-link" href="#">
                 <div class="award-item">
                     <h3 class="award-category">Ausfalllastigste Haltestelle</h3>
-                    <p class="award-winner-long">Bahnhof Olten</p>
-                    <p class="award-subtext">20 Ausfälle</p>
+                    <p class="award-winner-long" id="outputAusfHaltHalt"></p>
+                    <p class="award-subtext" id="outputAusfHaltVersp"></p>
                     <p class="find-out-more">Mehr erfahren</p>
                 </div>
             </a>
             <a class="award-link" href="#">
                 <div class="award-item">
                     <h3 class="award-category">Schlimmste<br>Stunde</h3>
-                    <p class="award-winner-short">18:00</p>
-                    <p class="award-subtext">125 Verspätungen</p>
+                    <p class="award-winner-short" id="outputSchlimmsteStundeStunde"></p>
+                    <p class="award-subtext" id="outputSchlimmsteStundeVersp"></p>
                     <p class="find-out-more">Mehr erfahren</p>
                 </div>
             </a>
             <a class="award-link" href="#">
                 <div class="award-item">
                     <h3 class="award-category">Verspätetste Haltestelle</h3>
-                    <p class="award-winner-long">Bern, Wander</p>
-                    <p class="award-subtext">5 Verspätungen</p>
+                    <p class="award-winner-long" id="outputSchlHaltHalt"></p>
+                    <p class="award-subtext" id="outputSchlHaltVersp"></p>
                     <p class="find-out-more">Mehr erfahren</p>
                 </div>
             </a>
