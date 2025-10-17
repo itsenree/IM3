@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bellota+Text:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bellota+Text:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
 
 /* ---- base ---- */
 
@@ -7,7 +7,7 @@ header {
     text-align: center;
     font-family: "Bellota Text", sans-serif;
     font-size: 25px;
-    background: var(--gold-simple, linear-gradient(135deg, #F8D666 0%, #D3AF3B 18.75%, #BD9D35 36.06%, #6D5B1E 100%));
+    background: var(--gold-simple, linear-gradient(135deg, #f8d666 0%, #d3af3b 18.75%, #bd9d35 36.06%, #6d5b1e 100%));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -29,7 +29,7 @@ h2 {
 }
 
 .award-day-txt {
-    color: #FFF;
+    color: #fff;
     text-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
     font-family: "Bellota Text", sans-serif;
     font-size: 32px;
@@ -59,56 +59,41 @@ section {
 }
 
 .award-item {
-  /* background-color: #f1f1f1; */
-    background: linear-gradient(135deg, #F8D666 0%, #D3AF3B 18.75%, #BD9D35 36.06%, #6D5B1E 100%);
+    /* background-color: #f1f1f1; */
+    background: linear-gradient(135deg, #f8d666 0%, #d3af3b 18.75%, #bd9d35 36.06%, #6d5b1e 100%);
     box-shadow: 0 4px 6px 0 rgba(255, 255, 255, 0.25) inset;
     filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.25));
     padding: 20px;
     font-size: 24px;
     width: 320px;
     height: 320px;
-    -webkit-mask-image:
-    radial-gradient(circle at top left, transparent 0, transparent  20px, black 21px),
-    radial-gradient(circle at top right, transparent 0, transparent  20px, black 21px),
-    radial-gradient(circle at bottom left, transparent 0, transparent  20px, black 21px),
-    radial-gradient(circle at bottom right, transparent 0, transparent  20px, black 21px);
+    -webkit-mask-image: radial-gradient(circle at top left, transparent 0, transparent 20px, black 21px), radial-gradient(circle at top right, transparent 0, transparent 20px, black 21px), radial-gradient(circle at bottom left, transparent 0, transparent 20px, black 21px), radial-gradient(circle at bottom right, transparent 0, transparent 20px, black 21px);
     -webkit-mask-position: top left, top right, bottom left, bottom right;
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-size: 50% 50%;
-    mask-image:
-    radial-gradient(circle at top left, transparent 0, transparent 20px, black 21px),
-    radial-gradient(circle at top right, transparent 0, transparent 20px, black 21px),
-    radial-gradient(circle at bottom left, transparent 0, transparent 20px, black 21px),
-    radial-gradient(circle at bottom right, transparent 0, transparent 20px, black 21px);
+    mask-image: radial-gradient(circle at top left, transparent 0, transparent 20px, black 21px), radial-gradient(circle at top right, transparent 0, transparent 20px, black 21px), radial-gradient(circle at bottom left, transparent 0, transparent 20px, black 21px), radial-gradient(circle at bottom right, transparent 0, transparent 20px, black 21px);
     mask-position: top left, top right, bottom left, bottom right;
     mask-repeat: no-repeat;
     mask-size: 50% 50%;
-    transition: .2s ease-in-out;
+    transition: 0.2s ease-in-out;
 }
 
 .award-item:hover {
     transform: scale(1.05);
 }
 
-
 .award-item:after {
-  content: "";
-  position: absolute;
-  top: -110%;
-  left: -210%;
-  width: 200%;
-  height: 200%;
-  opacity: 0;
-  transform: rotate(30deg);
-  
-  background: rgba(255, 255, 255, 0.13);
-  background: linear-gradient(
-    to right, 
-    rgba(255, 255, 255, 0.13) 0%,
-    rgba(255, 255, 255, 0.13) 77%,
-    rgba(255, 255, 255, 0.5) 92%,
-    rgba(255, 255, 255, 0.0) 100%
-  );
+    content: "";
+    position: absolute;
+    top: -110%;
+    left: -210%;
+    width: 200%;
+    height: 200%;
+    opacity: 0;
+    transform: rotate(30deg);
+
+    background: rgba(255, 255, 255, 0.13);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.13) 0%, rgba(255, 255, 255, 0.13) 77%, rgba(255, 255, 255, 0.5) 92%, rgba(255, 255, 255, 0) 100%);
 }
 
 /*---
@@ -116,12 +101,12 @@ section {
 ---*/
 
 .award-item:hover:after {
-  opacity: 1;
-  top: -30%;
-  left: -30%;
-  transition-property: left, top, opacity;
-  transition-duration: 0.7s, 0.7s, 0.15s;
-  transition-timing-function: ease;
+    opacity: 1;
+    top: -30%;
+    left: -30%;
+    transition-property: left, top, opacity;
+    transition-duration: 0.7s, 0.7s, 0.15s;
+    transition-timing-function: ease;
 }
 
 /*---
@@ -129,9 +114,8 @@ section {
 ---*/
 
 .award-item:active:after {
-  opacity: 0;
+    opacity: 0;
 }
-
 
 h3 {
     margin-top: 0;
@@ -156,7 +140,7 @@ h3 {
 }
 
 .award-winner-short {
-    color: #FFF;
+    color: #fff;
     text-align: center;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: #000;
@@ -169,7 +153,7 @@ h3 {
 }
 
 .award-winner-long {
-    color: #FFF;
+    color: #fff;
     text-align: center;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: #000;
@@ -186,7 +170,7 @@ h3 {
 }
 
 .award-subtext {
-    color: #FFF;
+    color: #fff;
     text-align: center;
     font-family: "Bellota Text", sans-serif;
     font-size: 30px;
