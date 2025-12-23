@@ -2,6 +2,8 @@ fetch("https://im3.enrico-fusaro.ch/php/unload/unzuverlässigstes-verkehrsmittel
     .then(response => response.json())
     .then(data => {
         let table = document.getElementById("output-current")
+        let labels = [];
+        let values = [];
 
         data.forEach((element, index) => {
             let row = table.insertRow();
@@ -12,7 +14,41 @@ fetch("https://im3.enrico-fusaro.ch/php/unload/unzuverlässigstes-verkehrsmittel
             cell2.innerHTML = element.verkehrsmittel;
             cell3.innerHTML = element.verspaetungen;
             cell1.className = "rank";
+
+            labels.push(element.verkehrsmittel);
+            values.push(Number(element.verspaetungen) || 0);
         });
+
+        // Render horizontal bar chart using Chart.js
+        try {
+            const canvas = document.getElementById('chart-current');
+            if (canvas && labels.length) {
+                const ctx = canvas.getContext('2d');
+                // Destroy previous chart instance if reused (avoid duplicates)
+                if (canvas._chartInstance) canvas._chartInstance.destroy();
+                canvas._chartInstance = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Verspätungen',
+                            data: values,
+                            backgroundColor: '#D3AF3B'
+                        }]
+                    },
+                    options: {
+                        indexAxis: 'x',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: { beginAtZero: true }
+                        }
+                    }
+                });
+            }
+        } catch (e) {
+            console.error('Chart render error:', e);
+        }
     }) 
     .catch(error => {
         console.error("Error during unload:", error);

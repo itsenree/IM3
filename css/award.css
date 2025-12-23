@@ -157,6 +157,10 @@ tr:nth-child(n+4) .rank {
     color: rgb(122, 122, 122);
 }
 
+.chart_wrapper {
+    padding: 20px;
+}
+
 .go-back {
     color: white;
     text-align: center;

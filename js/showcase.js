@@ -113,8 +113,8 @@ fetch("php/unload/schlimmste-stunde-aktuell.php")
         let outputSchlimmsteStundeStunde = document.getElementById("outputSchlimmsteStundeStunde");
         let outputSchlimmsteStundeVersp = document.getElementById("outputSchlimmsteStundeVersp");
 
-        outputSchlimmsteStundeStunde.innerText = data[0].zeit + ":00";
-        outputSchlimmsteStundeVersp.innerText = data[0].verspaetungen + " Ausfälle";
+        outputSchlimmsteStundeStunde.innerText = data[0].stunde + ":00";
+        outputSchlimmsteStundeVersp.innerText = data[0].verspaetungen + " Verspätungen";
 
     }) 
     .catch(error => {
@@ -131,7 +131,7 @@ fetch("php/unload/schlimmste-haltestelle-aktuell.php")
         let outputSchlHaltVersp = document.getElementById("outputSchlHaltVersp");
 
         outputSchlHaltHalt.innerText = data[0].haltestelle;
-        outputSchlHaltVersp.innerText = data[0].verspaetungen + " Ausfälle";
+        outputSchlHaltVersp.innerText = data[0].verspaetungen + " Verspätungen";
 
     }) 
     .catch(error => {

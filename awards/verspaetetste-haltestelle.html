@@ -18,7 +18,7 @@
     </header>
 
     <section>
-        <h2 class="award-title">Unzuverlässigste Verkehrsmittel</h2>
+        <h2 class="award-title">Verspätetste Haltestellen</h2>
         <div id="tab-container" class="detail_container">
             <div class="category_selection">
                 <a class="detail_active" href="#" data-tab="aktuell">Aktuell</a>
@@ -28,27 +28,22 @@
             <div id="tab-content" style="transition: opacity 0.3s;">
                 <div id="table-container">
                     <!-- Aktuell Tab Content -->
-                    <div data-tab-content="aktuell">
-                        <div class="chart_wrapper" style="max-width:900px;">
-                            <canvas id="chart-current" width="900" height="400"></canvas>
-                        </div>
-                        <table>
-                            <tr>
-                                <th class="column_name">Rang</th>
-                                <th class="column_name">Verkehrsmittel</th>
-                                <th class="column_name">Verspätungen</th>
-                            </tr>
-                            <tbody class="output" id="output-current">
-                                <!-- Data will be populated here by JavaScript -->
-                            </tbody>
-                        </table>
-                    </div>
+                    <table data-tab-content="aktuell">
+                        <tr>
+                            <th class="column_name">Rang</th>
+                            <th class="column_name">Haltestelle</th>
+                            <th class="column_name">Verspätung</th>
+                        </tr>
+                        <tbody class="output" id="output-current">
+                            <!-- Data will be populated here by JavaScript -->
+                        </tbody>
+                    </table>
                     <!-- Rekorde Tab Content -->
                     <table data-tab-content="rekorde" style="display:none;">
                         <tr>
                             <th class="column_name">Rang</th>
-                            <th class="column_name">Verkehrsmittel</th>
-                            <th class="column_name">Verspätungen</th>
+                            <th class="column_name">Haltestelle</th>
+                            <th class="column_name">Verspätung</th>
                             <th class="column_name">Datum</th>
                         </tr>
                         <tbody class="output" id="output-records">
@@ -59,7 +54,7 @@
                     <table data-tab-content="preistraeger" style="display:none;">
                         <tr>
                             <th class="column_name">Rang</th>
-                            <th class="column_name">Verkehrsmittel</th>
+                            <th class="column_name">Haltestelle</th>
                             <th class="column_name">Awards</th>
                         </tr>
                         <tbody class="output" id="output-winners">
@@ -95,8 +90,7 @@
     <path d="M590.741 1193L1147 -164L0 1038.84L590.741 1193Z" fill="#F8CC87" fill-opacity="0.2"/>
     </svg>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../js/table.js"></script>
-    <script src="../js/unzuverlaessigstes-verkehrsmittel.js"></script>
+    <script src="../js/verspaetetste-haltestelle.js"></script>
 </body>
 </html>
