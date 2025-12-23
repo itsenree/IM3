@@ -28,7 +28,7 @@ try {
         return $b->dauer_s <=> $a->dauer_s;
     });
 
-    // Ausgabe der unzuverlässigsten Verkehrsmitteln
+    // Ausgabe der unzuverlässigsten Zuglinien
     $sql = "SELECT * FROM LaengsteVerspaetungRekorde";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
