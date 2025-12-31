@@ -39,7 +39,7 @@ try {
         $alreadyExists = false;
         foreach ($recordResults as $previousRecord) {
             if ($record->verkehrsmittel === $previousRecord['verkehrsmittel']) {
-                // Wenn die Zuglinie bereits in den Rekorden vorhanden ist, aktualisiere das Datum
+                // Wenn das Verkehrsmittel bereits in den Rekorden vorhanden ist, aktualisiere das Datum
                 if ($record->verspaetungen > $previousRecord['verspaetungen']) {
                     $sql = "UPDATE UnzuverlaessigsteVerkehrsmittelRekorde SET datum = ? AND verspaetungen = ? WHERE verkehrsmittel = ?";
                     $stmt = $pdo->prepare($sql);
@@ -52,10 +52,10 @@ try {
         }
 
         if (!$alreadyExists) {
-            // Wenn die Zuglinie noch nicht in den Rekorden ist, füge sie hinzu
-            $sql = "INSERT INTO UnzuverlaessigsteZuglinieRekorde (zuglinie, verspaetungen, datum) VALUES (?, ?, ?)";
+            // Wenn das Verkehrsmittel noch nicht in den Rekorden ist, füge es hinzu
+            $sql = "INSERT INTO UnzuverlaessigsteVerkehrsmittelRekorde (verkehrsmittel, verspaetungen, datum) VALUES (?, ?, ?)";
             $stmt = $pdo->prepare($sql);
-            $stmt->execute([$record->zuglinie, $record->verspaetungen, $record->datum]);
+            $stmt->execute([$record->verkehrsmittel, $record->verspaetungen, $record->datum]);
         }
     }
 

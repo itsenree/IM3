@@ -18,7 +18,7 @@
     </header>
 
     <section>
-        <h2 class="award-title">Unzuverlässigste Zuglinien</h2>
+        <h2 class="award-title">Längste Verspätungen</h2>
         <div id="tab-container" class="detail_container">
             <div class="category_selection">
                 <a class="detail_active" href="#" data-tab="aktuell">Aktuell</a>
@@ -26,40 +26,42 @@
                 <a class="detail_name" href="#" data-tab="preistraeger">Preisträger</a>
             </div>
             <div id="tab-content" style="transition: opacity 0.3s;">
-                <!-- Aktuell Tab Content -->
-                <table data-tab-content="aktuell">
-                    <tr>
-                        <th class="column_name">Rang</th>
-                        <th class="column_name">Zuglinie</th>
-                        <th class="column_name">Verspätungen</th>
-                    </tr>
-                    <tbody class="output" id="output-current">
-                        <!-- Data will be populated here by JavaScript -->
-                    </tbody>
-                </table>
-                <!-- Rekorde Tab Content -->
-                <table data-tab-content="rekorde" style="display:none;">
-                    <tr>
-                        <th class="column_name">Rang</th>
-                        <th class="column_name">Zuglinie</th>
-                        <th class="column_name">Verspätungen</th>
-                        <th class="column_name">Datum</th>
-                    </tr>
-                    <tbody class="output" id="output-records">
-                        <!-- Data will be populated here by JavaScript -->
-                    </tbody>
-                </table>
-                <!-- Preisträger Tab Content -->
-                <table data-tab-content="preistraeger" style="display:none;">
-                    <tr>
-                        <th class="column_name">Rang</th>
-                        <th class="column_name">Zuglinie</th>
-                        <th class="column_name">Awards</th>
-                    </tr>
-                    <tbody class="output" id="output-winners">
-                        <!-- Data will be populated here by JavaScript -->
-                    </tbody>
-                </table>
+                <div id="table-container">
+                    <!-- Aktuell Tab Content -->
+                    <table data-tab-content="aktuell">
+                        <tr>
+                            <th class="column_name">Rang</th>
+                            <th class="column_name">Zuglinie</th>
+                            <th class="column_name">Verspätung</th>
+                        </tr>
+                        <tbody class="output" id="output-current">
+                            <!-- Data will be populated here by JavaScript -->
+                        </tbody>
+                    </table>
+                    <!-- Rekorde Tab Content -->
+                    <table data-tab-content="rekorde" style="display:none;">
+                        <tr>
+                            <th class="column_name">Rang</th>
+                            <th class="column_name">Zuglinie</th>
+                            <th class="column_name">Verspätung</th>
+                            <th class="column_name">Datum</th>
+                        </tr>
+                        <tbody class="output" id="output-records">
+                            <!-- Data will be populated here by JavaScript -->
+                        </tbody>
+                    </table>
+                    <!-- Preisträger Tab Content -->
+                    <table data-tab-content="preistraeger" style="display:none;">
+                        <tr>
+                            <th class="column_name">Rang</th>
+                            <th class="column_name">Zuglinie</th>
+                            <th class="column_name">Awards</th>
+                        </tr>
+                        <tbody class="output" id="output-winners">
+                            <!-- Data will be populated here by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
         <a class="go-back" href="../index.html">Zurück</a>
@@ -89,6 +91,6 @@
     </svg>
 
     <script src="../js/table.js"></script>
-    <script src="../js/awards.js"></script>
+    <script src="../js/laengste-verspaetung.js"></script>
 </body>
 </html>

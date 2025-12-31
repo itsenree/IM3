@@ -10,16 +10,16 @@
         tab.classList.add('detail_active');
         tab.classList.remove('detail_name');
 
-        // Hide all tables
-        document.querySelectorAll('#tab-content table').forEach(function(table) {
-            table.style.display = 'none';
+        // Hide all tab contents (any element that carries data-tab-content)
+        document.querySelectorAll('#tab-content [data-tab-content]').forEach(function(el) {
+            el.style.display = 'none';
         });
 
-        // Show the selected table
+        // Show the selected tab content
         const selected = tab.getAttribute('data-tab');
-        const selectedTable = document.querySelector('#tab-content table[data-tab-content="' + selected + '"]');
-        if (selectedTable) {
-            selectedTable.style.display = '';
+        const selectedContent = document.querySelector('#tab-content [data-tab-content="' + selected + '"]');
+        if (selectedContent) {
+            selectedContent.style.display = '';
         }
     }
 
