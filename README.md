@@ -1,4 +1,4 @@
-#  Railbait - IM3 Leistungsnachweis
+#  SBB Railbait Awards - IM3 Leistungsnachweis
 ## Maya Nikita Baumann & Enrico Fusaro | mmp24b
 
 [Link zur Wesbeite](https://im3.enrico-fusaro.ch/index.html)
