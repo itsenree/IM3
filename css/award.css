@@ -16,6 +16,7 @@ h1 {
     font-weight: 700;
     line-height: normal;
     text-transform: uppercase;
+    text-align: center;
 }
 
 section {
@@ -43,7 +44,21 @@ h3 {
 /* ---- award container ---- */
 
 .detail_container{
-    width: 60%;
+    width: 80%;
+}
+
+/* Zebra striping for rows in the detail container */
+.detail_container tr:nth-child(odd) {
+    background-color: rgba(255, 255, 255, 0.032); /* Light background for odd rows */
+}
+
+.detail_container tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.039); /* Slightly darker background for even rows */
+}
+
+/* Target the <tr> containing .column_name */
+.detail_container tr:has(.column_name) {
+    background-color: rgba(155, 134, 0, 0.2); /* Light background color */
 }
 
 /* ---- small selection bar ---- */
@@ -109,6 +124,7 @@ table thead, table tbody tr {
   width: 100%;
   table-layout: fixed;
 }
+
 .column_name {
     text-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
     font-family: "Bellota Text";
@@ -136,6 +152,11 @@ td {
 
 table td:nth-child(1), table th:nth-child(1), table td:nth-child(2), table th:nth-child(2) { text-align: start; }
 table td:nth-child(3), table th:nth-child(3), table td:nth-child(4), table th:nth-child(4) { text-align: end; }
+
+table td:nth-child(1), table th:nth-child(1) {
+    width: 15%; /* Setze eine feste Breite für die erste Spalte */
+    text-align: center; /* Zentriere den Text */
+}
 
 /* First place */
 tr:nth-child(1) .rank {
@@ -173,4 +194,66 @@ tr:nth-child(n+4) .rank {
     margin: 0;
     margin-top: 10px;
     text-decoration: none;
+}
+
+@media (max-width: 950px) {
+
+        table thead, table tbody tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
+    
+    table td:nth-child(1), table th:nth-child(1) {
+        width: 20%; /* Setze eine feste Breite für die erste Spalte */
+        text-align: center; /* Zentriere den Text */
+    }
+    
+    #table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+        min-width: 700px; /* adjust if needed */
+        width: 100%;
+        table-layout: auto;
+    }
+
+        .detail_container {
+        width: 90%;
+    }
+
+        .detail_name, .detail_active {
+        display: block; /* Make them block-level elements */
+        width: 100%; /* Take the full width of the parent container */
+        text-align: center; /* Center the text inside */
+        box-sizing: border-box; /* Include padding in the width calculation */
+    }
+
+        .column_name {
+        font-size: 25px;
+        white-space: nowrap;
+        word-break: keep-all;
+        hyphens: none;
+        text-align: center; /* Center the text horizontally */
+        vertical-align: top; /* Align the text to the top */
+    }
+
+}
+
+@media (max-width: 480px) {
+
+        .column_name {
+        font-size: 20px;
+        }
+
+    th {
+        text-align: center; /* Center the column headers */
+        vertical-align: top; /* Align the column headers to the top */
+    }
+
+    td {
+        font-size: 20px; /* Adjust font size for better readability on small screens */
+    }
 }

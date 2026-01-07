@@ -206,3 +206,11 @@ h3 {
     bottom: 10px;
     transform: translateX(-50%);
 }
+
+@media (max-width: 768px) {
+
+}
+
+@media (max-width: 480px) {
+
+}   

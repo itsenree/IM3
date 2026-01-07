@@ -99,3 +99,62 @@ body {
         transform: rotate(-5deg);
     }
 }
+
+@media (max-width: 1100px) {
+    .railings-container {
+        bottom: 8px;
+    }
+
+    .railing.left, .railing.right {
+        width: 150px;
+    }
+
+    .railing.left, .railing.right {
+        width: 100%;
+        height: 105%;
+    }
+
+    #red-carpet {
+        height: 105px;
+    }
+}
+
+@media (max-width: 768px) {
+    .railings-container {
+        bottom: -20px;
+    }
+
+    .railing.left, .railing.right {
+        width: 105%;
+        height: 105%;
+    }
+
+    #red-carpet {
+        height: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+    .railings-container {
+        bottom: 4px;
+    }
+
+    .railing.left, .railing.right {
+        width: 120%;
+        height: 150%;
+    }
+
+    #red-carpet {
+        height: 50px;
+    }
+}
+
+@media (max-width: 430px) {
+    .railings-container {
+        display: none;
+    }
+
+    #red-carpet {
+        height: 40px;
+    }
+}
