@@ -16,10 +16,9 @@ function formatDateToDMY(dateString) {
 fetch("php/unload.php")
 .then(response => response.json())
     .then(data => {
-        console.log(data);
         let outputDateFromPull = document.getElementById("outputDateFromPull");
 
-        outputDateFromPull.innerText = "Award Gewinner vom " + formatDateToDMY(data[0].betriebstag);
+        outputDateFromPull.innerText = "Award Gewinner vom " + new Date(data[0].betriebstag).toLocaleDateString();
 
     }) 
     .catch(error => {
@@ -44,15 +43,13 @@ fetch("php/unload/unzuverlässigste-zuglinie-aktuell.php")
 
 // Time function
 function secondsToHMS(sec) {
+    console.log(sec);
+    
     sec = Number(sec);
     var h = Math.floor(sec / 3600);
     var m = Math.floor(sec % 3600 / 60);
     var s = Math.floor(sec % 3600 % 60);
-
-    var hDisplay = h > 0 ? h + (h == 1 ? " hour, " : "h ") : "";
-    var mDisplay = m > 0 ? m + (m == 1 ? " minute, " : "min ") : "";
-    var sDisplay = s > 0 ? s + (s == 1 ? " second" : "s") : "";
-    return hDisplay + mDisplay + sDisplay; 
+    return h.toString().padStart(2, '0') + ":" + m.toString().padStart(2, '0') + ":" + s.toString().padStart(2, '0'); 
 }
 
 // Fetch längste Verspätung Data
@@ -64,8 +61,7 @@ fetch("php/unload/längste-verspätung-aktuell.php")
         let outputLaengVerspVersp = document.getElementById("outputLaengVerspVersp");
 
         outputLaengVerspZuglinie.innerText = data[0].zuglinie;
-        // outputLaengVerspVersp.innerText = data[0].verspaetung_s;
-        outputLaengVerspVersp.innerText = secondsToHMS(data[0].verspaetung_s);
+        outputLaengVerspVersp.innerText = secondsToHMS(data[0].dauer_s) + " Verspätung";
 
     }) 
     .catch(error => {

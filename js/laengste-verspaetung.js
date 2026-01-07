@@ -32,7 +32,7 @@ fetch("https://im3.enrico-fusaro.ch/php/unload/längste-verspätung-aktuell.php?
             cell1.innerHTML = index + 1 + ".";
             cell2.innerHTML = element.zuglinie;
             cell3.innerHTML = secondsToHMS(element.dauer_s);
-            cell4.innerHTML = element.datum;
+            cell4.innerHTML = new Date(element.datum).toLocaleDateString();
             cell1.className = "rank";
         });
     }) 
@@ -68,8 +68,8 @@ function secondsToHMS(sec) {
     var m = Math.floor(sec % 3600 / 60);
     var s = Math.floor(sec % 3600 % 60);
 
-    var hDisplay = h > 0 ? h + (h == 1 ? " hour, " : "h ") : "";
-    var mDisplay = m > 0 ? m + (m == 1 ? " minute, " : "min ") : "";
-    var sDisplay = s > 0 ? s + (s == 1 ? " second" : "s") : "";
-    return hDisplay + mDisplay + sDisplay; 
+    // var hDisplay = h > 0 ? h + "h " : "";
+    // var mDisplay = m > 0 ? m + "min "  : "";
+    // var sDisplay = s > 0 ? s + "s" : "";
+    return h.toString().padStart(2, '0') + ":" + m.toString().padStart(2, '0') + ":" + s.toString().padStart(2, '0'); 
 }

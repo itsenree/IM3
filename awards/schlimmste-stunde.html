@@ -28,16 +28,21 @@
             <div id="tab-content" style="transition: opacity 0.3s;">
                 <div id="table-container">
                     <!-- Aktuell Tab Content -->
-                    <table data-tab-content="aktuell">
-                        <tr>
-                            <th class="column_name">Rang</th>
-                            <th class="column_name">Stunde</th>
-                            <th class="column_name">Verspätungen</th>
-                        </tr>
-                        <tbody class="output" id="output-current">
-                            <!-- Data will be populated here by JavaScript -->
-                        </tbody>
-                    </table>
+                    <div data-tab-content="aktuell">
+                        <div class="chart_wrapper" style="max-width:900px;">
+                            <canvas id="chart-current" width="900" height="400"></canvas>
+                        </div>
+                        <table>
+                            <tr>
+                                <th class="column_name">Rang</th>
+                                <th class="column_name">Stunde</th>
+                                <th class="column_name">Verspätungen</th>
+                            </tr>
+                            <tbody class="output" id="output-current">
+                                <!-- Data will be populated here by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
                     <!-- Rekorde Tab Content -->
                     <table data-tab-content="rekorde" style="display:none;">
                         <tr>
@@ -90,6 +95,7 @@
     <path d="M590.741 1193L1147 -164L0 1038.84L590.741 1193Z" fill="#F8CC87" fill-opacity="0.2"/>
     </svg>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../js/table.js"></script>
     <script src="../js/schlimmste-stunde.js"></script>
 </body>

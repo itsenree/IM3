@@ -17,6 +17,9 @@ switch ($category) {
     case 'winners':
         $sql = "SELECT * FROM `SchlimmsteStundePreistraeger` ORDER BY preise DESC";
         break;
+    case 'currentByHour':
+        $sql = "SELECT SUBSTRING(ankunftszeit, 12, 2) as stunde, COUNT(ID) as verspaetungen FROM Verspaetungen WHERE ausfall = 0 GROUP BY stunde ORDER BY stunde ASC";
+        break;
     default:
         $sql = "SELECT SUBSTRING(ankunftszeit, 12, 2) as stunde, COUNT(ID) as verspaetungen FROM Verspaetungen WHERE ausfall = 0 GROUP BY stunde ORDER BY verspaetungen DESC";
         break;

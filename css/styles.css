@@ -37,6 +37,8 @@ h2 {
     font-weight: 700;
     line-height: normal;
     text-transform: uppercase;
+    padding: 10px;
+    text-align: center;
 }
 
 section {

@@ -19,7 +19,7 @@ fetch("https://im3.enrico-fusaro.ch/php/unload/unzuverlässigstes-verkehrsmittel
             values.push(Number(element.verspaetungen) || 0);
         });
 
-        // Render horizontal bar chart using Chart.js
+        // Render bar chart using Chart.js
         try {
             const canvas = document.getElementById('chart-current');
             if (canvas && labels.length) {
@@ -68,7 +68,7 @@ fetch("https://im3.enrico-fusaro.ch/php/unload/unzuverlässigstes-verkehrsmittel
             cell1.innerHTML = index + 1 + ".";
             cell2.innerHTML = element.verkehrsmittel;
             cell3.innerHTML = element.verspaetungen;
-            cell4.innerHTML = element.datum;
+            cell4.innerHTML = new Date(element.datum).toLocaleDateString();
             cell1.className = "rank";
         });
     }) 

@@ -32,7 +32,7 @@ fetch("https://im3.enrico-fusaro.ch/php/unload/unzuverlässigste-zuglinie-aktuel
             cell1.innerHTML = index + 1 + ".";
             cell2.innerHTML = element.zuglinie;
             cell3.innerHTML = element.verspaetungen;
-            cell4.innerHTML = element.datum;
+            cell4.innerHTML = new Date(element.datum).toLocaleDateString();
             cell1.className = "rank";
         });
     }) 
