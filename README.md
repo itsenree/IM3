@@ -15,6 +15,9 @@ Dabei werden verschiedene Awards vergeben:
 
 Jeder Award kann angeklickt werden, um die aktuelle Rangliste, Rekorde und Preisträger anzusehen. Je nach Kategorie werden die Daten in Diagrammen dargestellt.
 
+### Hinweis
+Die benötigte API wird unregelmässig aktualisiert. Aus diesem Grund gibt es unregelmässige und veraltete einträge.
+
 ### Gelerntes & Schwierigkeiten
 Wir haben gelernt, wie man API-Daten verarbeitet, in einer Datenbank speichert und sie auf einer Webseite mithilfe von Data Storytelling visualisiert.
 
