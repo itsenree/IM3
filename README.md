@@ -4,7 +4,7 @@
 [Link zur Wesbeite](https://im3.enrico-fusaro.ch/index.html)
 
 ### Kurzbeschrieb
-Mit der Webseite **Railbait** erhält man einen Überblick über die aktuellsten Verspätungen der SBB (sobald die API neue Daten liefert).
+Mit der Webseite **SBB Railbait Awards** erhält man einen Überblick über die aktuellsten Verspätungen der SBB (sobald die API neue Daten liefert).
 Dabei werden verschiedene Awards vergeben:
 - Unzuverlässigste Zuglinie
 - Längste Verspätung
