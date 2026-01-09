@@ -42,13 +42,12 @@ fetch("php/unload/unzuverlässigste-zuglinie-aktuell.php")
     });
 
 // Time function
-function secondsToHMS(sec) {
-    console.log(sec);
-    
+function secondsToHMS(sec) {    
     sec = Number(sec);
     var h = Math.floor(sec / 3600);
     var m = Math.floor(sec % 3600 / 60);
     var s = Math.floor(sec % 3600 % 60);
+    
     return h.toString().padStart(2, '0') + ":" + m.toString().padStart(2, '0') + ":" + s.toString().padStart(2, '0'); 
 }
 

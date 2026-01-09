@@ -68,8 +68,5 @@ function secondsToHMS(sec) {
     var m = Math.floor(sec % 3600 / 60);
     var s = Math.floor(sec % 3600 % 60);
 
-    // var hDisplay = h > 0 ? h + "h " : "";
-    // var mDisplay = m > 0 ? m + "min "  : "";
-    // var sDisplay = s > 0 ? s + "s" : "";
     return h.toString().padStart(2, '0') + ":" + m.toString().padStart(2, '0') + ":" + s.toString().padStart(2, '0'); 
 }
